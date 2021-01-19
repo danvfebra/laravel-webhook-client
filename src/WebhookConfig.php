@@ -14,13 +14,13 @@ class WebhookConfig
 
     public $signatureHeaderName = "";
 
-    public $signatureValidator = new SignatureValidator();
+    public $signatureValidator = SignatureValidator::class;
 
-    public $webhookProfile = new WebhookProfile();
+    public $webhookProfile = WebhookProfile::class;
 
     public $webhookModel = "";
 
-    public $processWebhookJob = new ProcessWebhookJob();
+    public $processWebhookJob = ProcessWebhookJob::class;
 
     public function __construct(array $properties)
     {
