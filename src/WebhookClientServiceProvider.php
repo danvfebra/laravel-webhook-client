@@ -30,11 +30,19 @@ class WebhookClientServiceProvider extends ServiceProvider
         $this->app->singleton(WebhookConfigRepository::class, function () {
             $configRepository = new WebhookConfigRepository();
 
-            collect(config('webhook-client.configs'))
-                ->map(function (array $config) {new WebhookConfig($config);})
-                ->each(function ($webhookConfig) use ($configRepository) {
-                    $configRepository->addConfig($webhookConfig);
-                });
+            $webhookClientCofigs = collect(config('webhook-client.configs'));
+
+            $webhookClientConfigs = $webhookClientCofigs->map(function($conf){
+               return  new WebhookConfig($conf);
+            });
+            $webhookClientConfigs->each(function($webhookConf) use ($configRepository) {
+                $configRepository->addConfig($webhookConf);
+            });
+//            collect(config('webhook-client.configs'))
+//                ->map(function (array $config) {new WebhookConfig($config);})
+//                ->each(function ($webhookConfig) use ($configRepository) {
+//                    $configRepository->addConfig($webhookConfig);
+//                });
 
             return $configRepository;
         });
