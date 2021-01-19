@@ -10,9 +10,9 @@ use Spatie\WebhookClient\Models\WebhookCall;
 
 class WebhookProcessor
 {
-    protected Request $request;
+    protected $request;
 
-    protected WebhookConfig $config;
+    protected $config;
 
     public function __construct(Request $request, WebhookConfig $config)
     {
