@@ -8,17 +8,17 @@ use Spatie\WebhookClient\WebhookProfile\WebhookProfile;
 
 class WebhookConfig
 {
-    public string $name;
+    public $name = "";
 
-    public string $signingSecret;
+    public $signingSecret = "";
 
-    public string $signatureHeaderName;
+    public $signatureHeaderName = "";
 
     public SignatureValidator $signatureValidator;
 
     public WebhookProfile $webhookProfile;
 
-    public string $webhookModel;
+    public $webhookModel = "";
 
     public ProcessWebhookJob $processWebhookJob;
 
