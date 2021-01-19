@@ -14,9 +14,9 @@ class WebhookConfig
 
     public $signatureHeaderName = "";
 
-    public SignatureValidator $signatureValidator;
+    public $signatureValidator = new SignatureValidator();
 
-    public WebhookProfile $webhookProfile;
+    public $webhookProfile = new WebhookProfile();
 
     public $webhookModel = "";
 
