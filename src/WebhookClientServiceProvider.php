@@ -32,7 +32,7 @@ class WebhookClientServiceProvider extends ServiceProvider
 
             collect(config('webhook-client.configs'))
                 ->map(function (array $config) {new WebhookConfig($config);})
-                ->each(function (WebhookConfig $webhookConfig) use ($configRepository) {
+                ->each(function ($webhookConfig) use ($configRepository) {
                     $configRepository->addConfig($webhookConfig);
                 });
 
