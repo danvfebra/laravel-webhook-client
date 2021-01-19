@@ -20,7 +20,7 @@ class WebhookConfig
 
     public $webhookModel = "";
 
-    public ProcessWebhookJob $processWebhookJob;
+    public $processWebhookJob = new ProcessWebhookJob();
 
     public function __construct(array $properties)
     {
